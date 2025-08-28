@@ -29,29 +29,34 @@ const userSchema = new mongoose.Schema({
         label: String,
         street: {
             type: String,
-            required: true
+            required: false
         },
         city: {
             type: String,
-            required: true
+            required: false
         },
         country: {
             type: String,
-            required: true
+            required: false
         },
         zip: {
             type: String,
-            required: true
+            required: false
         },
         area: {
             type: String,
-            required: true
+            required: false
         },
         building: String,
         apartment: String,
         isdefault: Boolean
 
-    }]
+    }],
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
+
     
 },{timestamps:true});
 

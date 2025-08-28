@@ -15,15 +15,15 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     
-    categoryID: {
+    categoryID: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
         required: true
-    },
-    images: [{
-        type: String,
-        required: true
     }],
+    images: {
+        type: String,
+        required: false
+    },
     attributes:{
         material: {
             type: String,
@@ -37,6 +37,10 @@ const productSchema = new mongoose.Schema({
     isDeleted: {
         type: Boolean,
         default: false
+    },
+    isActive: {
+        type: Boolean,
+        default:true
     },
     variant: [{
         color: {
@@ -66,14 +70,14 @@ const productSchema = new mongoose.Schema({
 
     }],
 
-    categoryID:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
-    }]
+   
     
     
 },{timestamps:true});
+
+
+
+module.exports = mongoose.model('Product', productSchema);
 
 
 

@@ -5,6 +5,7 @@ const CategorySchema = new mongoose.Schema({
     name:{
         type: String,
         required: true,
+        unique: true
     },
     slug: {
         type: String,
@@ -22,10 +23,7 @@ const CategorySchema = new mongoose.Schema({
     isActive: {
         type: Boolean,
         default: true
-    },
-    path: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-    }]
+    }
 }, { timestamps: true });
-const Category = mongoose.model('Category', CategorySchema);
+
+module.exports = mongoose.model('Category', CategorySchema);
