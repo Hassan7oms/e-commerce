@@ -7,7 +7,10 @@ dotenv.config();
 const connectDB=require('./config/database.config');
 const corsMiddleware=require('./middlewares/cors-middleware');
 //const helmet = require('helmet');
-
+const productRouter=require('./routes/product-router');//const helmet = require('helmet');
+const FaQRouter= require('./routes/FAQ-router');
+const wishlistRouter= require('./routes/wishlist-router')
+const categoryRouter=require('./routes/category-router');
 
 const app = express();
 app.use("/uploads",express.static(path.join(__dirname,'uploads')));
@@ -32,7 +35,10 @@ const userRouter = require('./routes/user-router');
 
 
 app.use('/api/users',userRouter);
-
+app.use('/api/product',productRouter)
+app.use('/api/faq',FaQRouter);
+app.use('/api/wishlist',wishlistRouter);
+app.use('/api/category',categoryRouter);
 
 
 

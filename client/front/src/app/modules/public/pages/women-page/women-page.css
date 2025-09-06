@@ -1,0 +1,41 @@
+/* src/app/pages/women-collection/women-collection.component.css */
+
+/* ... (All styles for .collection-container, .header, .filters, .controls-bar remain) ... */
+
+/* Product Grid container style */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* State Handlers */
+.loading-state, .error-state, .empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    color: var(--text-color-light);
+    font-size: 1.1rem;
+}
+.error-state {
+    color: #e53e3e; /* Red for errors */
+}
+
+/* ... (Responsive styles for the grid and layout remain the same) ... */
+@media (max-width: 1024px) {
+    .collection-body { grid-template-columns: 240px 1fr; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .collection-container { padding: 1rem; }
+    .collection-body { grid-template-columns: 1fr; }
+    .filters-sidebar { margin-bottom: 2rem; }
+    .controls-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+@media (max-width: 480px) {
+    .product-grid { grid-template-columns: 1fr; }
+}
